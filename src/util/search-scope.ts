@@ -1,4 +1,4 @@
-const SEARCH_SCOPE = 'id:paul-wisdom';
+const SEARCH_SCOPE = '';
 const DELIM = '~:~';
 
 const formatScopedString = (input: string) => {
