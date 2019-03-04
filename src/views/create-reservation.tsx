@@ -1,5 +1,5 @@
 import React, {Component, PureComponent, SFC} from 'react';
-import {View, Button, TextInput, Picker} from 'react-native';
+import {View, Button, TextInput, StyleSheet, Dimensions} from 'react-native';
 import {NavigationScreenProps} from 'react-navigation';
 import {MutationFn, Mutation} from 'react-apollo';
 import {createReservationMutation} from '../gql/reservations';
@@ -9,6 +9,22 @@ import {
 	IReservationInput
 } from '../gql/types';
 import {formatScopedString} from '../util/search-scope';
+import DatePicker from 'react-native-datepicker';
+import {ViewContainer} from '../components/view-container';
+
+const {width} = Dimensions.get('screen');
+
+const styles = StyleSheet.create({
+	datesContainer: {
+		display: 'flex',
+		flexDirection: 'row',
+		alignSelf: 'stretch'
+	},
+	datePicker: {
+		alignSelf: 'stretch',
+		width: width / 2
+	}
+});
 
 const hotelOptions = [
 	{
@@ -39,6 +55,8 @@ class CreateReservationView extends Component<
 	Partial<IReservationInput>
 > {
 	static navigationOptions = ({navigation}) => ({
+		headerStyle: {backgroundColor: '#104c97', color: 'white'},
+		headerTitleStyle: {color: 'white'},
 		headerRight: (
 			<Button title="Save" onPress={navigation.getParam('handleSave')} />
 		)
@@ -80,7 +98,7 @@ class CreateReservationView extends Component<
 
 	public render() {
 		return (
-			<View>
+			<ViewContainer>
 				<TextInput
 					style={{height: 40, borderColor: 'gray', borderWidth: 1}}
 					onChangeText={this.handleNameChange}
@@ -93,30 +111,30 @@ class CreateReservationView extends Component<
 					value={this.state.hotelName}
 					placeholder={'Hotel Name'}
 				/>
-				{/* <Picker
-					selectedValue={this.state.hotelName}
-					style={{height: 50, width: 100}}
-					onValueChange={this.handleHotelChange}
-					mode={'dropdown'}
-				>
-					{hotelOptions.map(({value, label}) => (
-						<Picker.Item label={label} value={value} />
-					))}
-				</Picker> */}
-				<TextInput
-					style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-					onChangeText={this.handleArrivalDateChange}
-					value={this.state.arrivalDate}
-					placeholder={'Arrival Date'}
-				/>
-				<TextInput
-					style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-					onChangeText={this.handleDepartureDateChange}
-					value={this.state.departureDate}
-					placeholder={'Departure Date'}
-				/>
+				<View style={styles.datesContainer}>
+					<DatePicker
+						placeholder={'Arrival Date'}
+						style={styles.datePicker}
+						date={this.state.arrivalDate}
+						mode="date"
+						onDateChange={this.handleArrivalDateChange}
+						iconComponent={<View />}
+						confirmBtnText={'Save'}
+						cancelBtnText={'Cancel'}
+					/>
+					<DatePicker
+						placeholder={'Departure Date'}
+						style={styles.datePicker}
+						date={this.state.departureDate}
+						mode="date"
+						onDateChange={this.handleDepartureDateChange}
+						iconComponent={<View />}
+						confirmBtnText={'Save'}
+						cancelBtnText={'Cancel'}
+					/>
+				</View>
 				<Button title="Save" onPress={this.handleSave} />
-			</View>
+			</ViewContainer>
 		);
 	}
 
@@ -131,7 +149,8 @@ class CreateReservationView extends Component<
 						name: formatScopedString(name),
 						...rest
 					}
-				}
+				},
+				refetchQueries: () => ['reservations']
 			});
 
 			navigation.goBack();

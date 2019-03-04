@@ -687,6 +687,15 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.9.tgz#f2d14df87b0739041bc53a7d75e3d77d726a3ec0"
   integrity sha512-Nha5b+jmBI271jdTMwrHiNXM+DvThjHOfyZtMX9kj/c/LUj2xiLHsG/1L3tJ8DjAoQN48cHwUwtqBotjyXaSdQ==
 
+"@types/react-native-datepicker@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-datepicker/-/react-native-datepicker-1.7.0.tgz#b4dc63ed3bd356ac30c9195b7987aea45f79fe8d"
+  integrity sha512-YbhwgveJSmJRsUNl82UcZbMdNDBzd+RiMmyev3+yiEepGYk56yh/Q3Ypi2dw7XjMEQ5GSNUehcVKVP31EWcUlw==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+    moment ">=2.14.0"
+
 "@types/react-native@*", "@types/react-native@^0.57.38":
   version "0.57.38"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.38.tgz#2ff6ed1a7cc207afbfd87bf496513d96931d1446"
@@ -4061,6 +4070,11 @@ mkdirp@0.x, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+moment@>=2.14.0, moment@^2.22.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+
 morgan@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.9.1.tgz#0a8d16734a1d9afbc824b99df87e738e58e2da59"
@@ -4773,13 +4787,6 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-apollo-hooks@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-apollo-hooks/-/react-apollo-hooks-0.4.2.tgz#e031845f59b5daa1a322b4d857dafd207ab9553f"
-  integrity sha512-o4ZgTxLVf9p4cCQ8VRsplJ/xrrqyYt46EXfRl7UXLcl71R9rBLHkXwJ21mgbKwgP8aiqDG2oHKZaQY3lchEemQ==
-  dependencies:
-    lodash "^4.17.11"
-
 react-apollo@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-2.5.1.tgz#85934e1cf41ba88e2e96c921b44588f29d5daad6"
@@ -4819,6 +4826,13 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-native-datepicker@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/react-native-datepicker/-/react-native-datepicker-1.7.2.tgz#58d0822591a0ac9b32aba082650222a0ee29669d"
+  integrity sha1-WNCCJZGgrJsyq6CCZQIioO4pZp0=
+  dependencies:
+    moment "^2.22.0"
 
 react-native-gesture-handler@^1.0.16, react-native-gesture-handler@~1.0.14:
   version "1.0.16"

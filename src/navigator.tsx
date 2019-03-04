@@ -7,9 +7,21 @@ export enum Routes {
 	'createReservation' = 'createReservation'
 }
 
-const MainNavigator = createStackNavigator({
-	[Routes.reservations]: {screen: Reservations},
-	[Routes.createReservation]: {screen: CreateReservation}
-});
+const defaultConfig = {
+	defaultNavigationOptions: {
+		headerStyle: {backgroundColor: '#104c97', color: 'white'},
+		headerTitleStyle: {color: 'white'},
+		headerBackTitleStyle: {color: 'white'},
+		headerTintColor: 'white'
+	}
+};
+
+const MainNavigator = createStackNavigator(
+	{
+		[Routes.reservations]: {screen: Reservations},
+		[Routes.createReservation]: {screen: CreateReservation}
+	},
+	defaultConfig
+);
 
 export const AppNavigator = createAppContainer(MainNavigator);

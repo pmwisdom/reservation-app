@@ -30,4 +30,8 @@ const ReservationsList: SFC<IReservationList> = ({
 	);
 };
 
+ReservationsList.defaultProps = {
+	reservations: []
+};
+
 export {ReservationsList};
